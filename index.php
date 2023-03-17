@@ -10,12 +10,12 @@ $info = <<<IDENTIFIER
                 brilliance and to learn more with the passage of time from all<br>
                 types of situations and circumstances.
                 IDENTIFIER;
-$salary =  5000;
-$experience =  2.5;
-$city = 'Kyiv';
-$relocation = true;
-$mail = 'zhizhkoslava@gmail.com';
-$phone = '063-617-35-66';
+$salary = (int)5000;
+$experience = (float)2.5;
+$city = (string)'Kyiv';
+$relocation = (bool)true;
+$mail = (string)'zhizhkoslava@gmail.com';
+$phone = (string)'063-617-35-66';
 $skills = ['PHP', 'SQL', 'Laravel', 'NGINX'];
 $time = date('H');
 if ($time > 6 && $time < 18){
