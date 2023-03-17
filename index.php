@@ -1,7 +1,7 @@
 <?php
-$name = 'Viacheslav Zhyzhko';
-$photoURL = 'https://marketplace.canva.com/EAFEits4-uw/1/0/1600w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-oEqs2yqaL8s.jpg';
-$vacancy = 'Laravel Developer';
+$name = (string)'Viacheslav Zhyzhko';
+$photoURL = (string)'https://marketplace.canva.com/EAFEits4-uw/1/0/1600w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-oEqs2yqaL8s.jpg';
+$vacancy = (string)'Laravel Developer';
 $info = <<<IDENTIFIER
                 <h2 style="color:blue;">CAREER OBJECT:</h2>
                 Want to be the part of a software developer organization and utilize my knowledge,Skills
@@ -9,12 +9,12 @@ $info = <<<IDENTIFIER
                 brilliance and to learn more with the passage of time from all<br>
                 types of situations and circumstances.
                 IDENTIFIER;
-$salary = 5000;
-$experience = 2.5;
-$city = 'Kyiv';
-$relocation = true;
-$mail = 'zhizhkoslava@gmail.com';
-$phone = '063-617-35-66';
+$salary = (int)5000;
+$experience = (float)2.5;
+$city = (string)'Kyiv';
+$relocation = (bool)true;
+$mail = (string)'zhizhkoslava@gmail.com';
+$phone = (string)'063-617-35-66';
 $skills = ['PHP', 'SQL', 'Laravel', 'NGINX'];
 $time = date('H');
 if ($time > 6 && $time < 18){
