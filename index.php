@@ -1,4 +1,5 @@
 <?php
+
 $name = 'Viacheslav Zhyzhko';
 $photoURL = 'https://marketplace.canva.com/EAFEits4-uw/1/0/1600w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-oEqs2yqaL8s.jpg';
 $vacancy = 'Laravel Developer';
@@ -9,8 +10,8 @@ $info = <<<IDENTIFIER
                 brilliance and to learn more with the passage of time from all<br>
                 types of situations and circumstances.
                 IDENTIFIER;
-$salary = 5000;
-$experience = 2.5;
+$salary =  5000;
+$experience =  2.5;
 $city = 'Kyiv';
 $relocation = true;
 $mail = 'zhizhkoslava@gmail.com';
