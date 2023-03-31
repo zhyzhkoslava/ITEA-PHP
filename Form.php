@@ -7,8 +7,8 @@
             5 => 'Cherkasy',
     ];
 
-    $fnameError = $lnameError = $cityError = $addressError = $birthdateError = '';
-    $fname = $lname = $region = $city = $address = $birthdate = '';
+    $fnameError = $lnameError = $cityError = $addressError = $birthdateError = $fileError = '';
+    $fname = $lname = $region = $city = $address = $birthdate = $file = '';
 
     function validateLength($param)
     {
@@ -77,12 +77,30 @@
             $addressError = 'Enter correct Address field!';
         }
 
+        if($_FILES['file']['error'] > 0 ){
+            $fileError =  'There is problem in file upload';
+        } else {
+            $whiteList = ['image/jpeg', 'image/gif', 'image/png'];
+
+            if (!in_array($_FILES['file']['type'], $whiteList)){
+                $fileError =  'Choose correct file type';
+            }else {
+                $fileName = $_SERVER['DOCUMENT_ROOT'] . '/images/' . $_FILES['file']['name'];
+                $fileNameShort = '/images/' . $_FILES['file']['name'];
+                if (move_uploaded_file($_FILES['file']['tmp_name'], $fileName))
+                {
+                    echo 'File ' . $_FILES['file']['name'] . ' uploaded!'.PHP_EOL;
+                }
+            }
+
+        }
+
     }
 
     if (isset($_POST['submit'])) {
-        if ($fnameError == '' && $lnameError == '' && $cityError == '' && $addressError == '' && $birthdateError == '')
+        if ($fnameError == '' && $lnameError == '' && $cityError == '' && $addressError == '' && $birthdateError == '' && $fileError == '')
         {
-            echo $fname . ' ' . $lname . ', ' . $birthdate . ', ' . $address . ', ' . 'was added to the system!';
+            echo $fname . ' ' . $lname . ', ' . $birthdate . ', ' . $address . ', ' . 'was added to the system!'.PHP_EOL;
         } else {
             echo 'Form is incorrect!';
         }
@@ -164,7 +182,7 @@
   </head>
   <body>
   <div class="container">
-      <form action="/Form.php" method="POST">
+      <form action="/Form.php" method="POST" enctype="multipart/form-data">
           <div class="row">
               <div class="col-25">
                   <label for="fname">First Name</label>
@@ -220,6 +238,20 @@
               <div class="col-75">
                   <input type="date" id="birthdate" name="birthdate" placeholder="Your birthdate.." value="<?php echo $_POST['birthdate'] ?? '' ?>" required>
                   <span class="error"><?php echo $birthdateError; ?></span>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-25">
+                  <label for="birthdate">File</label>
+              </div>
+              <div class="col-75">
+                  <input type="file" id="file" name="file" placeholder="Your file.." value="<?php echo $_POST['file'] ?? '' ?>" required>
+                  <?php
+                    if (file_exists($fileName)){
+                        echo "<img src=$fileNameShort alt='Uploaded img' width='150' height='150'>";
+                    };
+                  ?>
+                  <span class="error"><?php echo $fileError; ?></span>
               </div>
           </div>
           <div class="row">
