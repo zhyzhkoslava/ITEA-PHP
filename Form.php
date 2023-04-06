@@ -1,5 +1,6 @@
 <?php
     $regions = [
+            0 => '',
             1 => 'Kyiv',
             2 => 'Odesa',
             3 => 'Lviv',
@@ -45,6 +46,9 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {
+        if (isset($_POST['theme'])){
+            setcookie('theme', $_POST['theme'], time() + 360);
+        }
         $fname = tirm_input($_POST['fname']);
         $lname= tirm_input($_POST['lname']);
         $region = tirm_input($_POST['region']);
@@ -113,6 +117,12 @@
     <title>Simple form</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <style>
+        .white{
+            background-color: #fff5d9;
+        }
+        .dark{
+            background-color: #2b2a28;
+        }
         .error {
             color: red;
         }
@@ -180,7 +190,7 @@
         }
     </style>
   </head>
-  <body>
+  <body class="<?php echo !empty($_COOKIE['theme']) ? 'white' : 'dark'?>">
   <div class="container">
       <form action="/Form.php" method="POST" enctype="multipart/form-data">
           <div class="row">
@@ -242,12 +252,23 @@
           </div>
           <div class="row">
               <div class="col-25">
+                  <label for="theme">Theme</label>
+              </div>
+              <div class="col-75">
+                  <input type="radio" id="white" name="theme" value="White" checked>
+                  <label for="white">White</label>
+                  <input type="radio" id="dark" name="theme" value="Dark">
+                  <label for="dark">Dark</label>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-25">
                   <label for="birthdate">File</label>
               </div>
               <div class="col-75">
                   <input type="file" id="file" name="file" placeholder="Your file.." value="<?php echo $_POST['file'] ?? '' ?>" required>
                   <?php
-                    if (file_exists($fileName)){
+                    if (@file_exists($fileName)){
                         echo "<img src=$fileNameShort alt='Uploaded img' width='150' height='150'>";
                     };
                   ?>
