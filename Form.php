@@ -1,4 +1,31 @@
 <?php
+
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id']))
+    {
+        $link = mysqli_connect('localhost', 'root', 'a3s2s29jt6', '');
+
+        if (!$link) {
+            die("Cannot connect to mysql server". mysqli_connect_error());
+        }
+
+        $id = trim(htmlspecialchars($_GET['id']));
+
+        $sql = "SELECT * from user.users WHERE id = $id";
+        $res = mysqli_query($link, $sql);
+        if (!$res) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($link);
+        } else {
+            $data = mysqli_fetch_assoc($res);
+            echo '<pre>';
+            var_dump($data);
+            echo '</pre>';
+        }
+
+        mysqli_close($link);
+
+    }
+
+
     $regions = [
             0 => '',
             1 => 'Kyiv',
@@ -96,18 +123,34 @@
                     echo 'File ' . $_FILES['file']['name'] . ' uploaded!'.PHP_EOL;
                 }
             }
-
         }
 
-    }
+        if (isset($_POST['submit'])) {
+            if ($fnameError == '' && $lnameError == '' && $cityError == '' && $addressError == '' && $birthdateError == '' && $fileError == '')
+            {
+                $link = mysqli_connect('localhost', 'root', 'a3s2s29jt6', '');
 
-    if (isset($_POST['submit'])) {
-        if ($fnameError == '' && $lnameError == '' && $cityError == '' && $addressError == '' && $birthdateError == '' && $fileError == '')
-        {
-            echo $fname . ' ' . $lname . ', ' . $birthdate . ', ' . $address . ', ' . 'was added to the system!'.PHP_EOL;
-        } else {
-            echo 'Form is incorrect!';
+                if (!$link) {
+                    die("Cannot connect to mysql server". mysqli_connect_error());
+                }
+
+                $sql = "INSERT INTO user.users (fname, lname, region, city, address, birthdate, fileUrl)
+                    VALUES ('$fname', '$lname', '$region', '$city', '$address','$birthdate', '$fileName')";
+
+                if (mysqli_query($link, $sql)) {
+                    echo "New record created successfully".PHP_EOL;
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+                }
+
+                mysqli_close($link);
+
+                echo $fname . ' ' . $lname . ', ' . $birthdate . ', ' . $address . ', ' . 'was added to the system!'.PHP_EOL;
+            } else {
+                echo 'Form is incorrect!';
+            }
         }
+
     }
 ?>
 
