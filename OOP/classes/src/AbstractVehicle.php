@@ -1,7 +1,6 @@
 <?php
 
-namespace OOP\classes;
-
+namespace src;
 
 class AbstractVehicle
 {
@@ -26,19 +25,11 @@ class AbstractVehicle
 
     public function checkMaxSpeed(int $speed, int $unit): bool
     {
-        if ( ($speed + $unit) > $this->getMaxSpeed() )
-        {
-            return false;
-        } else
-            return true;
+        return ($speed + $unit) > $this->getMaxSpeed();
     }
 
     public function checkMinSpeed(int $speed, int $unit): bool
     {
-        if ( ($speed - $unit) < 0 )
-        {
-            return false;
-        } else
-            return true;
+        return ($speed - $unit) < 0;
     }
 }

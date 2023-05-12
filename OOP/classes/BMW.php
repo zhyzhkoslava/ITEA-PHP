@@ -1,7 +1,8 @@
 <?php
 
-namespace OOP\classes;
 
+use src\AbstractVehicle;
+use src\MovableInterface;
 
 class BMW extends AbstractVehicle implements MovableInterface
 {
@@ -16,7 +17,7 @@ class BMW extends AbstractVehicle implements MovableInterface
 
     public static function getCount()
     {
-        return self::$count;
+        return self::$count . PHP_EOL;
     }
 
     public function start()
@@ -37,7 +38,7 @@ class BMW extends AbstractVehicle implements MovableInterface
             echo 'Engine is not running' . PHP_EOL;
             return;
         }
-        if (!$this->checkMaxSpeed($this->speed, $unit)) {
+        if ($this->checkMaxSpeed($this->speed, $unit) !== false) {
             echo 'MaxSpeed is exceeded' . PHP_EOL;
             return;
         }
@@ -51,7 +52,7 @@ class BMW extends AbstractVehicle implements MovableInterface
             echo 'Engine is not running' . PHP_EOL;
             return;
         }
-        if (!$this->checkMinSpeed($this->speed, $unit)){
+        if ($this->checkMinSpeed($this->speed, $unit) !== false){
             echo 'MinSpeed is exceeded' . PHP_EOL;
             return;
         }

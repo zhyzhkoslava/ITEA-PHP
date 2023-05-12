@@ -1,14 +1,11 @@
 <?php
 
-use OOP\classes\BMW;
-use OOP\classes\GMC;
-
 spl_autoload_register(function($className) {
-    $segments = explode('\\', $className);
-    $filemane =  __DIR__ . '/classes/' . $segments[count($segments) - 1] . '.php';
-    if (file_exists($filemane))
+    $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
+    $path = __DIR__ . "/classes/{$className}.php";
+    if (is_readable($path))
     {
-        require_once $filemane;
+        require $path;
     }
 });
 

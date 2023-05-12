@@ -1,7 +1,6 @@
 <?php
 
-namespace OOP\classes;
-
+namespace src;
 
 interface MovableInterface
 {

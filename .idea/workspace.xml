@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18ec77fd-ced9-4fe1-ae98-f0e607c5b2b6" name="Default Changelist" comment="" />
+    <list default="true" id="18ec77fd-ced9-4fe1-ae98-f0e607c5b2b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP/classes/AbstractVehicle.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP/classes/src/AbstractVehicle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP/classes/BMW.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP/classes/BMW.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP/classes/GMC.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP/classes/GMC.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP/classes/MovableInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP/classes/src/MovableInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +32,11 @@
   <component name="PhpServers">
     <servers>
       <server host="mysite.com" id="2cfcf7d7-eb4e-4c1d-9523-a0fedacd27f0" name="mysite.com" />
+      <server host="myblog.com" id="d2b28347-2245-485f-a720-8842771123ef" name="myblog.com" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/OOP" remote-root="/Users/zhyzhkoslava/nginx/myblog.com/public" />
+        </path_mappings>
+      </server>
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
@@ -55,6 +67,7 @@
       <recent name="$PROJECT_DIR$/OOP/classes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/OOP/classes/src" />
       <recent name="$PROJECT_DIR$/OOP/clases" />
     </key>
   </component>
@@ -114,7 +127,7 @@
       <workItem from="1680873149098" duration="3659000" />
       <workItem from="1681213955276" duration="4078000" />
       <workItem from="1681468510026" duration="54000" />
-      <workItem from="1683631817078" duration="12338000" />
+      <workItem from="1683631817078" duration="17684000" />
     </task>
     <task id="LOCAL-00001" summary="create form">
       <created>1680251781395</created>
@@ -156,6 +169,22 @@
     <MESSAGE value="add cookie theme" />
     <MESSAGE value="add users info" />
     <option name="LAST_COMMIT_MESSAGE" value="add users info" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/OOP/classes/GMC.php</url>
+          <line>40</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/OOP/classes/BMW.php</url>
+          <line>40</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
