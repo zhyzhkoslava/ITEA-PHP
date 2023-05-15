@@ -29,4 +29,6 @@ interface MovableInterface
      * @return mixed
      */
     public function down(int $unit);
+
+    public function move(string $from, string $to);
 }

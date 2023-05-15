@@ -11,12 +11,8 @@ spl_autoload_register(function($className) {
 
 $BMW = new BMW(50);
 $BMW->start();
+$driver = new Driver('Kyiv', 'Lviv');
 $BMW->up(20);
 $BMW->down(10);
 echo $BMW::getCount();
-
-$GMC = new GMC(20);
-$GMC->start();
-$GMC->up(20);
-$GMC->down(10);
-echo $GMC::getCount();
+$driver->drive($BMW);

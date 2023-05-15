@@ -8,11 +8,13 @@ class BMW extends AbstractVehicle implements MovableInterface
 {
     const COUNTRY = 'GERMANY';
     protected static $count;
+    protected $engine;
 
     public function __construct($maxSpeed)
     {
         parent::__construct($maxSpeed);
         self::$count++;
+        $this->engine = new Engine();
     }
 
     public static function getCount()
@@ -22,14 +24,12 @@ class BMW extends AbstractVehicle implements MovableInterface
 
     public function start()
     {
-        $this->engine = true;
-        echo 'Engine is running' . PHP_EOL;
+        $this->engine->start();
     }
 
     public function stop()
     {
-        $this->engine = false;
-        echo 'Engine is stopped' . PHP_EOL;
+        $this->engine->stop();
     }
 
     public function up(int $unit)
@@ -58,5 +58,14 @@ class BMW extends AbstractVehicle implements MovableInterface
         }
         $this->speed -= $unit;
         echo 'Current speed is ' . $this->speed . PHP_EOL;
+    }
+
+    public function move(string $from, string $to)
+    {
+        if (!$this->isEngineRunning()) {
+            echo 'Engine is not running' . PHP_EOL;
+            return;
+        }
+        echo 'Moving from ' . $from . ' to ' . $to . PHP_EOL;
     }
 }
