@@ -1,6 +1,7 @@
 {
     "name": "zhyzhkoslava/mysite.com",
     "description": "test composer repo",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Zhyzhkoslava\\MysiteCom\\": "src/"
@@ -14,6 +15,7 @@
     ],
     "require": {
         "php": ">=7.4",
-        "guzzlehttp/guzzle": "^7.6"
+        "guzzlehttp/guzzle": "^7.6",
+        "zhyzhkoslava/simple-laravel-dumper": "dev-master"
     }
 }
