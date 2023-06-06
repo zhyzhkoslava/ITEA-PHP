@@ -16,6 +16,7 @@
     "require": {
         "php": ">=7.4",
         "guzzlehttp/guzzle": "^7.6",
-        "zhyzhkoslava/simple-laravel-dumper": "dev-master"
+        "zhyzhkoslava/simple-laravel-dumper": "dev-master",
+        "psr/log": "^3.0@dev"
     }
 }
