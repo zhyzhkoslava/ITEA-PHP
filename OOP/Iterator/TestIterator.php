@@ -32,7 +32,7 @@ class TestIterator implements Iterator
 
     public function valid(): bool
     {
-        return fgets($this->file);
+        return !feof($this->file);
     }
 
     public function rewind(): void
