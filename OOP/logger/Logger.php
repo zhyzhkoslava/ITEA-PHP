@@ -6,12 +6,10 @@ use src\WriterInterface;
 
 class Logger implements LoggerInterface
 {
-    protected $filename;
     public $writer;
 
-    public function __construct($filename, WriterInterface $writer)
+    public function __construct(WriterInterface $writer)
     {
-        $this->filename = $filename;
         $this->writer = $writer;
     }
 
@@ -57,6 +55,6 @@ class Logger implements LoggerInterface
 
     public function log($level, \Stringable|string $message, array $context = []): void
     {
-        $this->writer->write($this->filename, $this->writer->formater->format($level, $message));
+        $this->writer->write($level, $message);
     }
 }

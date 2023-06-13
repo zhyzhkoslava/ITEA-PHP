@@ -7,14 +7,16 @@ use src\WriterInterface;
 class FileWriter implements WriterInterface
 {
     public $formater;
+    public $filename;
 
-    public function __construct(FormatInterface $formater)
+    public function __construct(string $filename, FormatInterface $formater)
     {
+        $this->filename = $filename;
         $this->formater = $formater;
     }
 
-    public function write($filename, $message)
+    public function write($level, $message)
     {
-        file_put_contents($filename, $message, FILE_APPEND);
+        file_put_contents($this->filename, $this->formater->format($level, $message), FILE_APPEND);
     }
 }

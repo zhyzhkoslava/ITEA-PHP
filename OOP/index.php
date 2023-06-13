@@ -30,8 +30,9 @@ require __DIR__ . '/../vendor/psr/log/src/LoggerInterface.php';
 require __DIR__ . '/../vendor/psr/log/src/LogLevel.php';
 
 $formater = new StringFormatter();
-$writer = new FileWriter($formater);
-$logger = new Logger(__DIR__.'/logs/log.txt', $writer);
+$filename = __DIR__.'/logs/log.txt';
+$writer = new FileWriter($filename, $formater);
+$logger = new Logger($writer);
 
 $app = new Application(
     new Db(),
